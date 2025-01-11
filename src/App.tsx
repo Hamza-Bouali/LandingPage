@@ -70,8 +70,14 @@ function App() {
                 onClick={() => setShowTrialModal(true)}
                 className="bg-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-purple-700 transition"
               >
-                Start Free Trial
+                Request your free Trial
               </button>
+                <button 
+                onClick={() => window.location.href = 'https://test-eight-zeta-80.vercel.app/'}
+                className="bg-white text-purple-600 border-purple-600 border-2 px-6 py-2 rounded-lg font-medium hover:bg-purple-800 hover:text-white transition"
+                >
+                Already a customer? Sign in
+                </button>
             </div>
           </div>
         </div>
@@ -315,7 +321,7 @@ function App() {
               onClick={() => setShowTrialModal(true)}
               className="bg-white text-purple-600 px-8 py-4 rounded-lg font-medium hover:bg-purple-50 transition flex items-center justify-center space-x-2"
             >
-              <span>Start Free Trial</span>
+              <span>Request your free Trial</span>
               <ArrowRight className="h-4 w-4" />
             </button>
             <button 
@@ -383,7 +389,7 @@ function App() {
               <X className="h-6 w-6" />
             </button>
             <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold mb-2">Start Your Free Trial</h2>
+              <h2 className="text-2xl font-bold mb-2">Request your free Trial</h2>
               <p className="text-gray-600">14 days free, no credit card required</p>
             </div>
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -468,7 +474,7 @@ function App() {
                 type="submit"
                 className="w-full bg-purple-600 text-white py-3 px-4 rounded-lg hover:bg-purple-700 transition duration-200 flex items-center justify-center space-x-2"
               >
-                <span>Start Free Trial</span>
+                <span>Request your free Trial</span>
                 <ArrowRight className="h-4 w-4" />
               </button>
               <p className="text-center text-sm text-gray-500">
@@ -503,6 +509,10 @@ function App() {
               {
                 title: "Lead Generation & Qualification",
                 src: "https://drive.google.com/file/d/1laPzp-da437sSdDf62HsXd2tCMaSi42J/preview"
+              },
+              {
+                title:"wesite Demo",
+                src: "https://drive.google.com/file/d/1eGe-x3Nkp7vVtvvmbAiurZOF51Ap_KKr/preview"
               }
             ].map((video, index) => (
               <div key={index} className="mb-8">
