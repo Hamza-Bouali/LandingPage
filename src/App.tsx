@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Phone, Bot, BarChart3, Headphones, MessageSquare, Clock, Shield, Globe2, X, ChevronDown, ChevronUp } from 'lucide-react';
 import Logo from './static/Logo.png';
+import axios from 'axios';
 
 function App() {
   const [showTrialModal, setShowTrialModal] = useState(false);
@@ -15,19 +16,36 @@ function App() {
 
   const [openFAQIndex, setOpenFAQIndex] = useState(null);
 
-  const handleSubmit = (e) => {
+ 
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     setShowTrialModal(false);
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      phone: '',
-      useCase: 'customer-support'
-    });
+  
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbwLc8jJf4kBk8RQlLottIo4Y1E46k0WqTyXTv3e-U26E1be-V_Pdz8u38PjKp9a9xYO/exec';
+  
+    try {
+      await fetch(scriptUrl, {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: { 'Content-Type': 'application/json' },
+        mode: 'no-cors', // Add this line
+      });
+  
+      alert('Data submitted successfully!');
+      setFormData({
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        useCase: 'customer-support',
+      });
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred while submitting the form.');
+    }
   };
-
   const handleInputChange = (e) => {
     setFormData({
       ...formData,
@@ -339,6 +357,7 @@ function App() {
                 </select>
               </div>
               <button
+              onClick={handleSubmit}
                 type="submit"
                 className="w-full bg-orange-500 text-white py-2 px-4 rounded-md hover:bg-orange-600 transition duration-200"
               >
