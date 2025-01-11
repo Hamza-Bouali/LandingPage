@@ -23,12 +23,12 @@ function App() {
     console.log('Form submitted:', formData);
     setShowTrialModal(false);
   
-    const scriptUrl = 'https://script.google.com/macros/s/AKfycbwLc8jJf4kBk8RQlLottIo4Y1E46k0WqTyXTv3e-U26E1be-V_Pdz8u38PjKp9a9xYO/exec';
+    const scriptUrl = 'https://script.google.com/macros/s/AKfycbzA_AlHKCAEYnL--7VLVajZOrv6ko3_s-HzzhiDVVMkQfrYGhjyw7WW-Ox8w4BaDmM_QA/exec';
   
     try {
       await fetch(scriptUrl, {
         method: 'POST',
-        body: JSON.stringify(formData),
+        body: JSON.stringify({values: Object.values(formData)}),
         headers: { 'Content-Type': 'application/json' },
         mode: 'no-cors', // Add this line
       });
